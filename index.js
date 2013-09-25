@@ -4,7 +4,12 @@ var cheerio = require('cheerio');
 var _ = require('underscore');
 _.mixin( require('underscore.deferred') );
 var Twit = require('twit');
-var T = new Twit(require('./config.js'));
+var T = new Twit({
+  consumer_key:         process.env['CONSUMER_KEY'],
+  consumer_secret:      process.env['CONSUMER_SECRET'],
+  access_token:         process.env['ACCESS_TOKEN'],
+  access_token_secret:  process.env['ACCESS_TOKEN_SECRET']
+});
 
 var paragraphObject = null;
 
